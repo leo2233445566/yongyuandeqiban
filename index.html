@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>永远的七班</title>
+  <meta name="description" content="永远的七班，属于七班同学的毕业纪念馆与班级空间前端原型。">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main id="public-site">
+    <header class="public-nav" id="public-nav">
+      <a class="brand" href="#home" aria-label="回到首页">
+        <span class="brand-mark">7</span>
+        <span>永远的七班</span>
+      </a>
+      <button class="nav-toggle" id="public-nav-toggle" type="button" aria-label="打开导航" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="public-links" id="public-links" aria-label="公开纪念馆导航">
+        <a class="public-link active" href="#home">序章</a>
+        <a class="public-link" href="#story">三年</a>
+        <a class="public-link" href="#gallery">照片</a>
+        <a class="public-link" href="#classmates">同学</a>
+        <a class="public-link" href="#teachers">寄语</a>
+      </nav>
+      <button class="nav-login" id="nav-login" type="button">登录班级空间</button>
+    </header>
+
+    <section class="public-hero" id="home">
+      <div class="hero-shade"></div>
+      <div class="hero-content reveal">
+        <p class="eyebrow" id="hero-school"></p>
+        <h1>把青春留在七班，把未来交给远方。</h1>
+        <p class="hero-lead" id="hero-desc"></p>
+        <div class="hero-actions">
+          <button class="primary-btn" id="hero-login" type="button">登录班级空间</button>
+          <a class="ghost-btn" href="#story">浏览公开纪念馆</a>
+        </div>
+      </div>
+      <div class="hero-frame reveal" aria-label="毕业季影像封面">
+        <div class="frame-photo">
+          <span>2026</span>
+        </div>
+        <div class="frame-caption">Class 07 / Graduation Season</div>
+      </div>
+    </section>
+
+    <section class="public-band stats-band" aria-label="班级概览">
+      <div class="stats-grid" id="public-stats"></div>
+    </section>
+
+    <section class="public-section story-section" id="story">
+      <div class="section-head reveal">
+        <p class="eyebrow">Our Three Years</p>
+        <h2>我们的三年</h2>
+        <p>登录前只展示公开记忆。真正的留言、私信和时间胶囊，会在登录后的班级空间里出现。</p>
+      </div>
+      <div class="public-timeline" id="public-timeline"></div>
+    </section>
+
+    <section class="public-section gallery-section" id="gallery">
+      <div class="section-head reveal">
+        <p class="eyebrow">Selected Moments</p>
+        <h2>精选照片</h2>
+        <p>像毕业季展览一样先放公开精选。完整照片馆登录后进入班级空间查看。</p>
+      </div>
+      <div class="featured-gallery" id="featured-gallery"></div>
+    </section>
+
+    <section class="public-section classmates-section" id="classmates">
+      <div class="section-head reveal">
+        <p class="eyebrow">Classmates</p>
+        <h2>公开同学录</h2>
+        <p>这里保留纪念册式的公开签名。完整同学列表和个人互动登录后查看。</p>
+      </div>
+      <div class="public-classmates" id="public-classmates"></div>
+    </section>
+
+    <section class="public-section message-preview-section">
+      <div class="section-head reveal">
+        <p class="eyebrow">Guestbook Preview</p>
+        <h2>留言预览</h2>
+        <p>公开页只展示精选留言，不提供提交入口。</p>
+      </div>
+      <div class="message-preview" id="public-message-preview"></div>
+    </section>
+
+    <section class="public-section teachers-section" id="teachers">
+      <div class="section-head reveal">
+        <p class="eyebrow">Teacher Notes</p>
+        <h2>老师寄语</h2>
+        <p>毕业季最后一页，留给老师们的话。</p>
+      </div>
+      <div class="teacher-grid" id="teacher-list"></div>
+    </section>
+
+    <footer class="public-footer">
+      <p id="public-footer-title"></p>
+      <span>登录后进入七班内部空间，查看消息、时间胶囊和完整内容。</span>
+    </footer>
+  </main>
+
+  <main id="class-space" class="class-space" hidden>
+    <aside class="space-sidebar">
+      <div class="space-brand">
+        <span class="brand-mark">7</span>
+        <div>
+          <strong>七班空间</strong>
+          <small id="space-user-role"></small>
+        </div>
+      </div>
+      <nav class="space-nav" id="space-nav" aria-label="班级空间菜单">
+        <button class="space-nav-item active" type="button" data-section="home">空间首页</button>
+        <button class="space-nav-item" type="button" data-section="messages">我的消息</button>
+        <button class="space-nav-item" type="button" data-section="capsules">时间胶囊</button>
+        <button class="space-nav-item" type="button" data-section="wall">留言墙</button>
+        <button class="space-nav-item" type="button" data-section="photos">照片馆</button>
+        <button class="space-nav-item" type="button" data-section="people">同学录</button>
+        <button class="space-nav-item" type="button" data-section="profile">我的资料</button>
+      </nav>
+      <button class="logout-btn" id="logout-button" type="button">退出到公开纪念馆</button>
+    </aside>
+
+    <section class="space-main">
+      <header class="space-topbar">
+        <button class="space-menu-toggle" id="space-menu-toggle" type="button" aria-label="打开班级空间菜单">菜单</button>
+        <div>
+          <p class="eyebrow" id="space-kicker">Class Space</p>
+          <h1 id="space-title">空间首页</h1>
+        </div>
+        <div class="space-user" id="space-user"></div>
+      </header>
+      <div class="space-content" id="space-content"></div>
+    </section>
+  </main>
+
+  <div class="login-modal" id="login-modal" aria-hidden="true">
+    <div class="login-card" role="dialog" aria-modal="true" aria-labelledby="login-title">
+      <button class="modal-close" id="login-close" type="button" aria-label="关闭登录窗口">&times;</button>
+      <p class="eyebrow">Class Login</p>
+      <h2 id="login-title">进入七班空间</h2>
+      <p>这是前端原型。点击下方按钮会以“张三”的模拟账号登录，不会保存任何真实数据。</p>
+      <button class="primary-btn full" id="demo-login-button" type="button">以张三身份进入</button>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightbox-close" type="button" aria-label="关闭预览">&times;</button>
+    <button class="lightbox-step prev" id="lightbox-prev" type="button" aria-label="上一张">&lsaquo;</button>
+    <button class="lightbox-step next" id="lightbox-next" type="button" aria-label="下一张">&rsaquo;</button>
+    <div class="lightbox-frame" id="lightbox-frame"></div>
+    <p class="lightbox-caption" id="lightbox-caption"></p>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
